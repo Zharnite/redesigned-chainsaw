@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Redesigned Chainsaw</title>
+		<style>
+			.tabcontent {
+				display: none;
+				
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<h1>Redesigned Chainsaw</h1>
+		<hr>
+		<h2>Dice Rolls</h2>
+		<div class="tab">
+			<button class="tablink" onclick="showTabCont(event, 'dr_1d6')">1d6</button>
+			<button class="tablink" onclick="showTabCont(event, 'dr_2d6')">2d6</button>
+			<button class="tablink" onclick="showTabCont(event, 'dr_custom')">Custom</button>
+		</div>
+		<div id="dr_1d6" class="tabcontent">
+			<h3>1d6</h3>
+			<button onclick="numGen('1d6', 1, 6)">Roll</button>
+			<span id="1d6" ></span>
+		</div>
+		<div id="dr_2d6" class="tabcontent">
+			<h3>2d6</h3>
+			
+		</div>
+		<div id="dr_custom" class="tabcontent">
+			<h3>Custom</h3>
+			
+		</div>
+		<script>
+			function showTabCont(e, name) {
+				var tablink;
+				var tabcontent;
+				var i;
+				
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for(i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+				
+				tablink = document.getElementsByClassName("tablink");
+				for(i = 0; i < tablink.length; i++) {
+					tablink[i].className = tablink[i].className.replace(" active", "");
+				}
+				
+				document.getElementById(name).style.display = "block";
+				e.currentTarget.className += " active";
+				
+			}
+			
+			function numGen(name, dices, highest) {
+				var currentTag = document.getElementById(name);
+				var dices = parseInt(dices);
+				var highest = parseInt(highest);
+				var result = 0; //Math.floor(Math.random() * (highest - dices + 1)) + dices;
+				var i;
+				for(i = 0; i < dices; i++) {
+					result += Math.floor(Math.random() * highest) + 1;
+				}
+				
+				
+				showSpan = document.getElementById(name);
+				showSpan.innerHTML = result;
+			}
+		</script>
+	</body>
+	
+</html>
