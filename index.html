@@ -27,11 +27,15 @@
 		</div>
 		<div id="dr_2d6" class="tabcontent">
 			<h3>2d6</h3>
-			
+			<button onclick="numGen('2d6', 2, 6)">Roll</button>
+			<span id="2d6" ></span>
 		</div>
 		<div id="dr_custom" class="tabcontent">
 			<h3>Custom</h3>
-			
+			<input type="text" id="diceNum" value="Number of dice"></input> d 
+			<input type="text" id="diceHighest" value="Number of sides"></input>
+			<button onclick="numGenCust()">Roll</button>
+			<span id="diceCustom"></span>
 		</div>
 		<script>
 			function showTabCont(e, name) {
@@ -67,6 +71,22 @@
 				
 				showSpan = document.getElementById(name);
 				showSpan.innerHTML = result;
+			}
+			
+			function numGenCust() {
+				var diceNum = document.getElementById("diceNum").value;
+				var dices = parseInt(diceNum);
+				var diceHighest = document.getElementById("diceHighest").value;
+				var highest = parseInt(diceHighest);
+				var diceCustom = document.getElementById("diceCustom");
+				var result = 0;
+				for(i = 0; i < dices; i++) {
+					result += Math.floor(Math.random() * highest) + 1;
+				}
+				
+				showSpan = diceCustom;
+				showSpan.innerHTML = result;
+				
 			}
 		</script>
 	</body>
