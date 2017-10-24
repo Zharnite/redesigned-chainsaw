@@ -14,28 +14,38 @@
 	<body>
 		<h1>Redesigned Chainsaw</h1>
 		<hr>
-		<h2>Dice Rolls</h2>
-		<div class="tab">
-			<button class="tablink" onclick="showTabCont(event, 'dr_1d6')">1d6</button>
-			<button class="tablink" onclick="showTabCont(event, 'dr_2d6')">2d6</button>
-			<button class="tablink" onclick="showTabCont(event, 'dr_custom')">Custom</button>
+		<div>
+			<h2>Dice Rolls</h2>
+			<div class="tab">
+				<button class="tablink" onclick="showTabCont(event, 'dr_1d6')">1d6</button>
+				<button class="tablink" onclick="showTabCont(event, 'dr_2d6')">2d6</button>
+				<button class="tablink" onclick="showTabCont(event, 'dr_custom')">Custom</button>
+			</div>
+			<div id="dr_1d6" class="tabcontent">
+				<h3>1d6</h3>
+				<button onclick="numGen('1d6', 1, 6)">Roll</button>
+				<span id="1d6" ></span>
+			</div>
+			<div id="dr_2d6" class="tabcontent">
+				<h3>2d6</h3>
+				<button onclick="numGen('2d6', 2, 6)">Roll</button>
+				<span id="2d6" ></span>
+			</div>
+			<div id="dr_custom" class="tabcontent">
+				<h3>Custom</h3>
+				<input type="text" id="diceNum" value="Number of dice"></input> d 
+				<input type="text" id="diceHighest" value="Number of sides"></input>
+				<button onclick="numGenCust()">Roll</button>
+				<span id="diceCustom"></span>
+			</div>
 		</div>
-		<div id="dr_1d6" class="tabcontent">
-			<h3>1d6</h3>
-			<button onclick="numGen('1d6', 1, 6)">Roll</button>
-			<span id="1d6" ></span>
-		</div>
-		<div id="dr_2d6" class="tabcontent">
-			<h3>2d6</h3>
-			<button onclick="numGen('2d6', 2, 6)">Roll</button>
-			<span id="2d6" ></span>
-		</div>
-		<div id="dr_custom" class="tabcontent">
-			<h3>Custom</h3>
-			<input type="text" id="diceNum" value="Number of dice"></input> d 
-			<input type="text" id="diceHighest" value="Number of sides"></input>
-			<button onclick="numGenCust()">Roll</button>
-			<span id="diceCustom"></span>
+		<div>
+		<h2>Random Number Generator</h2>
+		<input type="text" id="randIntLow" value="Lowest integer"></input>
+		<input type="text" id="randIntHigh" value="Highest integer"></input>
+		<button onclick="randNumGen()">Generate</button>
+		<span id="randNumGen"></span>
+		
 		</div>
 		<script>
 			function showTabCont(e, name) {
@@ -62,7 +72,7 @@
 				var currentTag = document.getElementById(name);
 				var dices = parseInt(dices);
 				var highest = parseInt(highest);
-				var result = 0; //Math.floor(Math.random() * (highest - dices + 1)) + dices;
+				var result = 0; 
 				var i;
 				for(i = 0; i < dices; i++) {
 					result += Math.floor(Math.random() * highest) + 1;
@@ -88,6 +98,19 @@
 				showSpan.innerHTML = result;
 				
 			}
+			
+			function randNumGen() {
+				var randIntLow = document.getElementById("randIntLow").value;
+				var low = parseInt(randIntLow);
+				var randIntHigh = document.getElementById("randIntHigh").value;
+				var high = parseInt(randIntHigh);
+				var result = Math.floor(Math.random() * (high - low + 1)) + low;
+				
+				var randNum = document.getElementById("randNumGen");
+				showSpan = randNum;
+				showSpan.innerHTML = result;
+			}
+
 		</script>
 	</body>
 	
