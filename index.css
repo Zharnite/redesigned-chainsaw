@@ -1,0 +1,62 @@
+.tabcontent {
+	display: none;
+	
+}
+
+#navbar {
+	margin: 0px 0px 0px 0px;
+	top: 0px;
+	left: 0px;
+
+}
+
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #ffffff;
+	color: #050A0B;
+	padding: 0px;
+	margin: 20px 20px 20px 200px;
+}
+
+button {
+	background-color: #222222;
+	color: #ffffff;
+	width: 80px;
+	height: 30px;
+	margin: 5px;
+	
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 180px;
+    background-color: #DADADA;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+
+}
+
+li a {
+    display: block;
+    color: #000000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #00ACAC;
+    color: white;
+}
+
+li a:hover.active {
+	background-color: #158989;
+}
+
+li a:hover:not(.active) {
+    background-color: #222222;
+    color: white;
+}
+
