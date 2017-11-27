@@ -1,6 +1,13 @@
 .tabcontent {
 	display: none;
-	
+}
+
+.tabcontent2 {
+	display: none;
+}
+
+#div_home {
+	display:block;
 }
 
 #navbar {

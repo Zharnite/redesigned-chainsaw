@@ -11,33 +11,43 @@
 	<body>
 		<div id="everything">
 			<ul id="navbar">
-			  <li><a class="active" href="#home">Home</a></li>
-			  <li><a href="#dice">Dice</a></li>
-			  <li><a href="#numbers">Numbers</a></li>
-			  <li><a href="#letters">Letters</a></li>
+			  <li><a class="tablink active" onclick="showTabCont(event, 'div_home')">Home</a></li>
+			  <li><a class="tablink" onclick="showTabCont(event, 'div_dice')">Dice</a></li>
+			  <li><a class="tablink" onclick="showTabCont(event, 'div_numbers')">Numbers</a></li>
+			  <li><a class="tablink" onclick="showTabCont(event, 'div_letters')">Letters</a></li>
 			</ul>
 
 			<h1>Redesigned Chainsaw</h1>
 			<img src="chainsaw-px.png" alt="chainsaw picture" width="400" >
 			<hr>
-			<div>
+			<div id="div_home" class="tabcontent">
+				<p>There is no Home.</p>
+				
+			
+			</div>
+			
+			
+			<div id="div_dice" class="tabcontent">
 				<h2>Dice Rolls</h2>
-				<div class="tab">
-					<button class="tablink" onclick="showTabCont(event, 'dr_1d6')">1d6</button>
-					<button class="tablink" onclick="showTabCont(event, 'dr_2d6')">2d6</button>
-					<button class="tablink" onclick="showTabCont(event, 'dr_custom')">Custom</button>
+				<div>
+					<button class="tablink2" onclick="showTabCont2(event, 'dr_1d6')">1d6</button>
+					<button class="tablink2" onclick="showTabCont2(event, 'dr_2d6')">2d6</button>
+					<button class="tablink2" onclick="showTabCont2(event, 'dr_custom')">Custom</button>
+					
+	
+					
 				</div>
-				<div id="dr_1d6" class="tabcontent">
+				<div id="dr_1d6" class="tabcontent2">
 					<h3>1d6</h3>
 					<button onclick="numGen('1d6', 1, 6)">Roll</button>
 					<span id="1d6" ></span>
 				</div>
-				<div id="dr_2d6" class="tabcontent">
+				<div id="dr_2d6" class="tabcontent2">
 					<h3>2d6</h3>
 					<button onclick="numGen('2d6', 2, 6)">Roll</button>
 					<span id="2d6" ></span>
 				</div>
-				<div id="dr_custom" class="tabcontent">
+				<div id="dr_custom" class="tabcontent2">
 					<h3>Custom</h3>
 					<input type="text" id="diceNum" value="Number of dice"></input> d 
 					<input type="text" id="diceHighest" value="Number of sides"></input>
@@ -45,7 +55,7 @@
 					<span id="diceCustom"></span>
 				</div>
 			</div>
-			<div>
+			<div id="div_numbers" class="tabcontent">
 				<h2>Random Number Generator</h2>
 				<input type="text" id="randIntLow" value="Lowest integer"></input>
 				<input type="text" id="randIntHigh" value="Highest integer"></input>
@@ -53,7 +63,7 @@
 				<span id="randNumGen"></span>
 			
 			</div>
-			<div>
+			<div id="div_letters" class="tabcontent">
 				<h2>Random Letter</h2>
 				<button onclick="randLetter()">Generate</button>
 				<span id="randLetterGen"></span>

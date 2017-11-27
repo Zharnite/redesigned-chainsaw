@@ -3,6 +3,7 @@ function showTabCont(e, name) {
 	var tabcontent;
 	var i;
 	
+	
 	tabcontent = document.getElementsByClassName("tabcontent");
 	for(i = 0; i < tabcontent.length; i++) {
 		tabcontent[i].style.display = "none";
@@ -17,6 +18,29 @@ function showTabCont(e, name) {
 	e.currentTarget.className += " active";
 	
 }
+
+function showTabCont2(e, name) {
+	var tablink2;
+	var tabcontent2;
+	var i;
+	
+	
+	tabcontent2 = document.getElementsByClassName("tabcontent2");
+	for(i = 0; i < tabcontent2.length; i++) {
+		tabcontent2[i].style.display = "none";
+	}
+	
+	tablink2 = document.getElementsByClassName("tablink2");
+	for(i = 0; i < tablink2.length; i++) {
+		tablink2[i].className = tablink2[i].className.replace(" active", "");
+	}
+	
+	document.getElementById(name).style.display = "block";
+	e.currentTarget.className += " active";
+	
+}
+
+
 
 function numGen(name, dices, highest) {
 	var currentTag = document.getElementById(name);
@@ -66,4 +90,3 @@ function randLetter() {
 	var getI= Math.floor(Math.random() * letters.length);
 	document.getElementById("randLetterGen").innerHTML = letters[getI];
 }
-
